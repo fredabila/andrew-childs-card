@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#e9e9e6;font-family:'Schibsted Grotesk',system-ui,sans-serif;color:#14161b}
+a{color:inherit;text-decoration:none}
+a:hover{color:#3fd6a0}
+</style>
+</helmet>
+
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6b6e75">Vidmoat · business e-card template</div>
+    <div style="font-size:15px;color:#3a3d44;max-width:620px;text-wrap:pretty">Placeholder palette until the Vidmoat guide is uploaded. Drop the logo and avatar onto the dashed slots. QR codes are live and scannable.</div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+
+    <div id="1a" style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;gap:8px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:#3a3d44"><span style="background:#14161b;color:#fff;padding:2px 7px;border-radius:4px">1a</span>Digital card · 390 × 780</div>
+
+      <div data-screen-label="Digital card" style="width:390px;height:780px;background:#f5f5f3;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px rgba(20,22,27,.35)">
+        <div style="position:relative;height:220px;background:#14161b;padding:28px;display:flex;justify-content:space-between;align-items:flex-start;box-sizing:border-box">
+          <div style="width:132px;height:36px"><image-slot id="logo-digital" shape="rect" fit="contain" placeholder="Vidmoat logo"></image-slot></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3fd6a0">{{ website }}</div>
+          <div style="position:absolute;left:28px;bottom:-56px;width:112px;height:112px;border-radius:50%;padding:5px;background:#f5f5f3;box-sizing:border-box">
+            <image-slot id="avatar-digital" shape="circle" placeholder="Avatar" style="width:102px;height:102px"></image-slot>
+          </div>
+        </div>
+
+        <div style="padding:76px 28px 0;display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.05">Andrew Childs</div>
+          <div style="font-size:16px;color:#3a3d44">Job title, credentials</div>
+          <div style="font-size:14px;color:#6b6e75">Vidmoat<sc-if value="{{ showBIL }}" hint-placeholder-val="{{ true }}"><span> · a Buzz Innovations Ltd. company</span></sc-if></div>
+        </div>
+
+        <div style="margin:22px 28px 0;display:flex;flex-direction:column;border-top:1px solid #dcdcd8">
+          <a href="mailto:andrewchilds88@gmail.com" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #dcdcd8;gap:12px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6b6e75">Email</span>
+            <span style="font-size:15px;font-weight:500">andrewchilds88@gmail.com</span>
+          </a>
+          <a href="{{ websiteHref }}" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #dcdcd8;gap:12px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6b6e75">Web</span>
+            <span style="font-size:15px;font-weight:500">{{ website }}</span>
+          </a>
+        </div>
+
+        <div style="margin:22px 28px 0;display:flex;gap:18px;align-items:center">
+          <div ref="{{ qrDigital }}" style="width:112px;height:112px;flex:none;background:#fff;border-radius:12px;padding:8px;box-sizing:border-box"></div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:15px;font-weight:600">{{ qrLabel }}</div>
+            <div style="font-size:13px;color:#6b6e75;text-wrap:pretty">Point your phone camera at the code.</div>
+          </div>
+        </div>
+
+        <div style="margin:auto 28px 28px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <button onClick="{{ saveContact }}" style="height:52px;border:0;border-radius:14px;background:#14161b;color:#fff;font:600 15px 'Schibsted Grotesk',sans-serif;cursor:pointer" style-hover="background:#2a2d35">Save contact</button>
+          <a href="mailto:andrewchilds88@gmail.com" style="height:52px;border-radius:14px;background:#3fd6a0;color:#0d2a1f;font:600 15px 'Schibsted Grotesk',sans-serif;display:flex;align-items:center;justify-content:center">Email Andrew</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="1b" style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;gap:8px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:#3a3d44"><span style="background:#14161b;color:#fff;padding:2px 7px;border-radius:4px">1b</span>Print card · 3.5 × 2 in · front &amp; back</div>
+
+      <div data-screen-label="Print front" style="width:700px;height:400px;background:#14161b;color:#fff;border-radius:14px;padding:40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px -30px rgba(20,22,27,.45)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="width:170px;height:44px"><image-slot id="logo-print" shape="rect" fit="contain" placeholder="Vidmoat logo"></image-slot></div>
+          <div style="width:96px;height:96px"><image-slot id="avatar-print" shape="circle" placeholder="Avatar" style="width:96px;height:96px"></image-slot></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1">Andrew Childs</div>
+            <div style="font-size:18px;color:#c9cbd1">Job title, credentials</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;font-family:'JetBrains Mono',monospace;font-size:14px">
+            <span>andrewchilds88@gmail.com</span>
+            <span style="color:#3fd6a0">{{ website }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Print back" style="width:700px;height:400px;background:#f5f5f3;border-radius:14px;padding:40px;box-sizing:border-box;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;box-shadow:0 30px 60px -30px rgba(20,22,27,.35)">
+        <div style="display:flex;flex-direction:column;justify-content:space-between;height:100%">
+          <div style="width:44px;height:6px;background:#3fd6a0;border-radius:3px"></div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1.1;text-wrap:pretty">{{ qrLabel }}</div>
+            <div style="font-size:15px;color:#6b6e75">Vidmoat<sc-if value="{{ showBIL }}" hint-placeholder-val="{{ true }}"><span> · a Buzz Innovations Ltd. company</span></sc-if></div>
+          </div>
+        </div>
+        <div ref="{{ qrPrint }}" style="width:240px;height:240px;background:#fff;border-radius:16px;padding:14px;box-sizing:border-box"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;qrMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Save contact&quot;,&quot;Website&quot;],&quot;default&quot;:&quot;Save contact&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;website&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;vidmoat.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showBIL&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  qrDigital = React.createRef();
+  qrPrint = React.createRef();
+  vals() {
+    const website = this.props.website ?? 'vidmoat.com';
+    const mode = this.props.qrMode ?? 'Save contact';
+    const href = /^https?:/.test(website) ? website : 'https://' + website;
+    const vcard = ['BEGIN:VCARD','VERSION:3.0','N:Childs;Andrew;;;','FN:Andrew Childs','ORG:Vidmoat','TITLE:','EMAIL;TYPE=WORK:andrewchilds88@gmail.com','URL:' + href,'END:VCARD'].join('\n');
+    return { website, href, mode, vcard, data: mode === 'Website' ? href : vcard };
+  }
+  drawQR() {
+    if (!window.qrcode) { clearTimeout(this.t); this.t = setTimeout(() => this.drawQR(), 150); return; }
+    const { data } = this.vals();
+    if (data === this.last) return;
+    this.last = data;
+    const q = window.qrcode(0, 'M'); q.addData(data); q.make();
+    const n = q.getModuleCount(); let d = '';
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (q.isDark(r, c)) d += `M${c} ${r}h1v1h-1z`;
+    const svg = `<svg viewBox="0 0 ${n} ${n}" width="100%" height="100%" shape-rendering="crispEdges" style="display:block"><path d="${d}" fill="#14161b"/></svg>`;
+    [this.qrDigital, this.qrPrint].forEach(r => { if (r.current) r.current.innerHTML = svg; });
+  }
+  componentDidMount() { this.drawQR(); }
+  componentDidUpdate() { this.drawQR(); }
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    const v = this.vals();
+    return {
+      website: v.website,
+      websiteHref: v.href,
+      showBIL: this.props.showBIL ?? true,
+      qrLabel: v.mode === 'Website' ? 'Scan to visit Vidmoat' : 'Scan to save my contact',
+      qrDigital: this.qrDigital,
+      qrPrint: this.qrPrint,
+      saveContact: () => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([v.vcard], { type: 'text/vcard' }));
+        a.download = 'Andrew-Childs.vcf'; a.click();
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
